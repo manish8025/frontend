@@ -1,0 +1,19 @@
+
+<mat-card>
+<div class="example-container">
+    <form [formGroup]="updateForm" class="edit-form">
+      <mat-form-field class="field-full-width"> 
+        <input matInput placeholder="Shelf Id" formControlName="shelfId" #shelfId>
+      </mat-form-field>
+
+      <mat-form-field class="field-full-width">
+          <input matInput placeholder="Product Weight" formControlName="weight" #weight>
+        </mat-form-field>
+      <br><br>
+      <div style="float: left;">
+        <button mat-raised-button color="accent" routerLink="/">Back</button>&nbsp;
+        <button type="submit" (click)="updateInventory(shelfId.value, weight.value)" [disabled]="updateForm.pristine || updateForm.invalid" mat-raised-button color="primary">Update</button>
+      </div>
+    </form>
+  </div>
+</mat-card>
