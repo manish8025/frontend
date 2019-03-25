@@ -14,11 +14,7 @@ export class InventoryserviceService {
      return this.http.get('http://localhost:8000/ishelf/inventory/');
    }
 
-   updateShelfValueInSensor(shelfId, weight) {
-    const sensorData = {
-      shelfId: shelfId,
-      weight: weight
-    }
-     return this.http.post('http://localhost:8000/ishelf/inventory/',sensorData);
+   updateShelfValueInSensor(request : any) {
+     return this.http.post('http://localhost:8000/ishelf/inventory/',request);
    }
 }

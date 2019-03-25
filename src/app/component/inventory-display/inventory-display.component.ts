@@ -22,7 +22,7 @@ export class InventoryDisplayComponent implements OnInit {
   mode = 'determinate';
   value : Number =0;
   bufferValue = 100;
-  inventories : Inventory[];
+  inventories : any;
   displayedColumns: string[] = ['prodName','stockStatus','invalidItemPresent'];
   constructor(private inventory : InventoryserviceService, private sesordataservice : SensorDataServiceService, iconRegistry: MatIconRegistry, sanitizer: DomSanitizer) {
     iconRegistry.addSvgIcon(
@@ -32,9 +32,10 @@ export class InventoryDisplayComponent implements OnInit {
 
     ngOnInit() {  
       setInterval(() => {
-        this.inventory.getInventoryFromSesor().subscribe((res : Inventory[])=>{
-          this.inventories = res.output.response;
-        }
-      }, 1000);
+       this.inventory.getInventoryFromSesor().subscribe((res : any)=>{
+        this.inventories = res.output.response;
+         })
+       }, 1000);
+      
     }
 }

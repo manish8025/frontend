@@ -22,8 +22,10 @@ export class UpdateInventoryComponent implements OnInit {
 
    createForm() {
       this.updateForm = this.fb.group({
-        shelfId: ['', Validators.required],
-        weight: ['', Validators.required]
+        productId: ['', Validators.required],
+        unitWeight: ['', Validators.required],
+        prodName :['', Validators.required],
+        threshold :['', Validators.required]
       });
     
   
@@ -33,11 +35,22 @@ export class UpdateInventoryComponent implements OnInit {
     
   }
 
-  updateInventory(shelfId, weight) {
-    this.inventoryservice.updateShelfValueInSensor(shelfId,weight).subscribe(() => {
+  updateInventory() {
+  
+    this.inventoryservice.updateShelfValueInSensor(this.updateForm.value).subscribe(() => {
       this.snackBar.open('Shelf updated successfully', 'OK', {
-        duration: 3000
+        duration: 3000,
+        verticalPosition: 'top',
+        horizontalPosition: 'center'
       });
+      this.updateForm.patchValue(
+        {
+          productId: [''],
+          unitWeight: [''],
+          prodName :[''],
+          threshold :['']
+        }
+      )
     });
     
   }

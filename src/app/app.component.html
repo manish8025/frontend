@@ -1,4 +1,4 @@
-<mat-toolbar>
+<mat-toolbar class="toolbar">
         <button mat-icon-button [matMenuTriggerFor]="menu">
                 <mat-icon>more_vert</mat-icon>
         </button>
@@ -9,7 +9,10 @@
         </mat-menu>
         <span>Inventory System</span>
 </mat-toolbar>
-<div>
+<div style="margin-bottom: 50px;">
 <router-outlet></router-outlet>
 
 </div>
+<footer class="footer">
+        <p>&#169; Tech Goons Company. All rights reserved</p>
+</footer>

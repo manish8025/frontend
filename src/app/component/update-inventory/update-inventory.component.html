@@ -1,18 +1,31 @@
 
-<mat-card>
+<br>
+<mat-divider></mat-divider>
+<mat-card style="background: #B2DFDB;">
 <div class="example-container">
     <form [formGroup]="updateForm" class="edit-form">
       <mat-form-field class="field-full-width"> 
-        <input matInput placeholder="Shelf Id" formControlName="shelfId" #shelfId>
+        <input matInput placeholder="Product Id" formControlName="productId" #productId>
       </mat-form-field>
 
       <mat-form-field class="field-full-width">
-          <input matInput placeholder="Product Weight" formControlName="weight" #weight>
+          <input matInput placeholder="Unit Weight" formControlName="unitWeight" #unitWeight>
+        </mat-form-field>
+
+        <mat-form-field class="field-full-width">
+          <input matInput placeholder="Product Name" formControlName="prodName" #prodName>
+        </mat-form-field>
+
+        <mat-form-field class="field-full-width">
+          <input matInput placeholder="Product Threshold" formControlName="threshold" #threshold>
         </mat-form-field>
       <br><br>
-      <div style="float: left;">
-        <button mat-raised-button color="accent" routerLink="/">Back</button>&nbsp;
-        <button type="submit" (click)="updateInventory(shelfId.value, weight.value)" [disabled]="updateForm.pristine || updateForm.invalid" mat-raised-button color="primary">Update</button>
+      <div>
+        <button mat-raised-button color="accent" routerLink="/" style="float: left;" >Back</button>&nbsp;
+        <button type="submit" (click)="updateInventory(productId.value, unitWeight.value,prodName.value,threshold.value)" [disabled]="updateForm.pristine || updateForm.invalid" mat-raised-button color="primary"
+        style="float: right;">
+          Update
+        </button>
       </div>
     </form>
   </div>
